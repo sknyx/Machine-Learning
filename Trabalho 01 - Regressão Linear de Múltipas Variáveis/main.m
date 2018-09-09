@@ -1,14 +1,14 @@
-% Instituto Federal de Brasília - Campus Taguatinga
-% Curso: Bacharelado em Ciência da Computação
-% Disciplina: Aprendizagem de Máquina - 2/2018
+% Instituto Federal de BrasÃ­lia - Campus Taguatinga
+% Curso: Bacharelado em CiÃªncia da ComputaÃ§Ã£o
+% Disciplina: Aprendizagem de MÃ¡quina - 2/2018
 % Professor: Lucas Moreira
 
-% Estudante: Carolina Ataíde de Assis
-% Matrícula: 161057600051
-% Período: 6° semestre
+% Estudante: Carolina AtaÃ­de de Assis
+% MatrÃ­cula: 161057600051
+% PerÃ­odo: 6Â° semestre
 % Data: 09/09/2018
 
-          % Trabalho 01 - Regressão Linear de Multiplas Variáveis 
+          % Trabalho 01 - RegressÃ£o Linear de Multiplas VariÃ¡veis 
             % utilizando o algoritmo do gradiente descendente.
 
 % Limpeza
@@ -16,45 +16,45 @@
 
 % Load dos dados
   data = load('data.txt');
-  X = data(:, 1:2);
-  y = data(:, 3);
-  m = length(y);
+  X = data(:, 1:2); % matriz de dados de entrada
+  y = data(:, 3); % vetor de valores alvo
+  m = length(y); % quantidade de amostras
 
-% Escalonamento de variáveis: normalização pela média 
+% Escalonamento de variÃ¡veis: normalizaÃ§Ã£o pela mÃ©dia 
   
-  num_var = size(X, 2); % número total de variáveis a serem consideradas
-  var = X; % matriz que será utilizada para normalizar X
+  num_var = size(X, 2); % nÃºmero total de variÃ¡veis a serem consideradas
+  var = X; % matriz que serÃ¡ utilizada para normalizar X
 
-  % 1 - média do conjunto de amostras para as variáveis:
+  % 1 - mÃ©dia do conjunto de amostras para as variÃ¡veis:
 
     for j = 1:num_var
-      media(1, j) = sum(var(:, j))./length(var); % vetor com a média das amostras de cada variável
-      X(:, j) = X(:, j) - media(1, j); % atualização da matriz X: amostras subtraidas pela média do conjunto de amostras
+      media(1, j) = sum(var(:, j))./length(var); % vetor com a mÃ©dia das amostras de cada variÃ¡vel
+      X(:, j) = X(:, j) - media(1, j); % atualizaÃ§Ã£o da matriz X: amostras subtraidas pela mÃ©dia do conjunto de amostras
     end
 
-  % 2 - valor máximo subtraído do seu valor mínimo:
+  % 2 - valor mÃ¡ximo subtraÃ­do do seu valor mÃ­nimo:
 
     for k = 1: num_var
-      S(1, k) = max(var(:, k)) - min(var(:, k)); % vetor com a faixa de valores de cada variável
-      X(:, k) = X(:, k) ./ S(1, k); % atualização da matriz X: amostras divididas pela suas faixa de valores
+      S(1, k) = max(var(:, k)) - min(var(:, k)); % vetor com a faixa de valores de cada variÃ¡vel
+      X(:, k) = X(:, k) ./ S(1, k); % atualizaÃ§Ã£o da matriz X: amostras divididas pela suas faixa de valores
     end
     
 % ------------------------------------------------------- %
 
-  X = [ones(m, 1) X]; % Adição de uma coluna de 1's em X
+  X = [ones(m, 1) X]; % AdiÃ§Ã£o de uma coluna de 1's em X
   alpha = 0.9; % Taxa de aprendizagem
-  num_iter = 610; % Quantidade de iterações
+  num_iter = 610; % Quantidade de iteraÃ§Ãµes
   theta_ini = zeros(3, 1); % Valores iniciais de theta
 
 % Gradiente Descendente
   [theta, J] = gradienteDescendente(X, y, theta_ini, alpha, num_iter);
 
-% Vetor de parâmetros theta com os valores ótimos
+% Vetor de parÃ¢metros theta com os valores Ã³timos
   fprintf('Theta: \n');
   fprintf(' %f \n', theta);
   fprintf('\n');
 
-% Estimativa do preço de um imovel de 1650 ft² e 3 quartos 
+% Estimativa do preÃ§o de um imovel de 1650 ftÂ² e 3 quartos 
   estimar = [1650, 3];
   
   for p = 1: num_var
