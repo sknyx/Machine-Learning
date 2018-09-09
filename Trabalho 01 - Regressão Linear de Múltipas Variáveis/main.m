@@ -8,7 +8,7 @@
 % Período: 6° semestre
 % Data: 09/09/2018
 
-          % Trabalho 01 - Regressão Linear de Multiplas Variáveis 
+          % Trabalho 01 - Regressão Linear de Múltiplas Variáveis 
             % utilizando o algoritmo do gradiente descendente.
 
 % Limpeza
