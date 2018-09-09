@@ -1,0 +1,13 @@
+clear; clear ; close all; clc;
+load('P2.mat');
+theta = [0;10];
+X = [ones(length(x),1) x];
+%J = funcaoCusto(X, y, theta);
+[theta, J] = gradienteDescendente(X, y, theta, 0.001, 50);
+hold on;
+plot(x, y, 'ro');
+t = 0:0.1:10;
+h = theta(1) + theta(2) * t;
+plot(J);
+plot(t, h,'b-');
+hold off;
